@@ -12,3 +12,7 @@ client = pytumblr.TumblrRestClient( # starts the stuff for talking to Tumblr
     keys[2],
     keys[3],
 )
+
+# markov.Parse("omam", 2, "omam.txt")
+
+print(markov.Gen("omam", 2))

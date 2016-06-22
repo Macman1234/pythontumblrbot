@@ -10,26 +10,15 @@ import codecs
 SENTENCE_SEPARATOR = '.'
 WORD_SEPARATOR = ' '
 
-class Markov:
-	#args = sys.argv
-	#usage = 'Usage: %s (parse <name> <depth> <path to txt file>|gen <name> <count>)' % (args[0], )
+def Parse(name, depth, file_name):
+	db = Db(sqlite3.connect(name + '.db'), Sql())
+	db.setup(depth)
 
-	#if (len(args) < 3):
-	#raise ValueError(usage)
+	txt = codecs.open(file_name, 'r', 'utf-8').read()
+	Parser(name, db, SENTENCE_SEPARATOR, WORD_SEPARATOR).parse(txt)
 
-	#mode  = args[1]
-	#name  = args[2]
-	
-	def Parse(name, depth, file_name):
-		db = Db(sqlite3.connect(name + '.db'), Sql())
-		db.setup(depth)
-
-		txt = codecs.open(file_name, 'r', 'utf-8').read()
-		Parser(name, db, SENTENCE_SEPARATOR, WORD_SEPARATOR).parse(txt)
-
-	def Parse(name, count):
-		count = int(args[3])
-		db = Db(sqlite3.connect(name + '.db'), Sql())
-		generator = Generator(name, db, Rnd())
-		for i in range(0, count):
-			print generator.generate(WORD_SEPARATOR)
+def Gen(name, count):
+	db = Db(sqlite3.connect(name + '.db'), Sql())
+	generator = Generator(name, db, Rnd())
+	for i in range(0, count):
+		return generator.generate(WORD_SEPARATOR)
