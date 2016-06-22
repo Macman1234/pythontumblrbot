@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import pytumblr
 keyfile = open("/home/maclean/keys.txt", "r+")
-str = keyfile.read(102)
+str = keyfile.read(204)
 keys = str.split( )
 
 client = pytumblr.TumblrRestClient(
@@ -11,4 +11,4 @@ client = pytumblr.TumblrRestClient(
     str[3],
 )
 
-client.create_text("macmarkov", state="published", slug="huh-did-not-know-you-could-do-this", title="test", body="test post please ignor")
+client.create_text("macmarkov", state="published", slug="test-post", title="test", body="test post please ignor")
