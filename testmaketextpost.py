@@ -5,10 +5,12 @@ str = keyfile.read(204)
 keys = str.split( )
 
 client = pytumblr.TumblrRestClient(
-    str[0],
-    str[1],
-    str[2],
-    str[3],
+    keys[0],
+    keys[1],
+    keys[2],
+    keys[3],
 )
+
+print(client.blog_info('macmarkov'))
 
 client.create_text("macmarkov", state="published", slug="test-post", title="test", body="test post please ignor")
