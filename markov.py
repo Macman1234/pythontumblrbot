@@ -20,5 +20,8 @@ def Parse(name, depth, file_name):
 def Gen(name, count):
 	db = Db(sqlite3.connect(name + '.db'), Sql())
 	generator = Generator(name, db, Rnd())
+	output = ""
 	for i in range(0, count):
-		return generator.generate(WORD_SEPARATOR)
+		output += " -- "
+		output += generator.generate(WORD_SEPARATOR)
+	return output
