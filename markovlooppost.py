@@ -19,9 +19,9 @@ client = pytumblr.TumblrRestClient( # starts the stuff for talking to Tumblr
 # markov.Parse("omam", 2, "omam.txt")
 # print(markov.Gen("omam", 2))
 
-genfile = open("/home/maclean/pythonresources/genfile.txt", "r+")
 while True:
     print("Updating Blog")
+    genfile = open("/home/maclean/pythonresources/genfile.txt", "r+")
     asklist = client.submission('macmarkov')
     for ask in asklist['posts']:
         if ask['type'] == 'answer':
