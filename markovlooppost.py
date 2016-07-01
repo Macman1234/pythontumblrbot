@@ -23,6 +23,9 @@ while True:
     print("Updating Blog")
     genfile = open("/home/maclean/pythonresources/genfile.txt", "r+")
     asklist = client.submission('macmarkov')
+    print(asklist)
+    print("\n")
+    print(asklist['posts'])
     for ask in asklist['posts']:
         if ask['type'] == 'answer':
             if ask['state'] == 'submission':
@@ -38,3 +41,4 @@ while True:
 
     os.remove('askgen.db')
     time.sleep(60)
+    asklist = {}
