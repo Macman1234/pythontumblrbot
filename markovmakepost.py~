@@ -15,18 +15,8 @@ client = pytumblr.TumblrRestClient( # starts the stuff for talking to Tumblr
     keys[3],
 )
 
-# markov.Parse("omam", 2, "omam.txt")
-# print(markov.Gen("omam", 2))
+execfile("markovtestpost.py")
 
-genfile = open("/home/maclean/pythonresources/genfile.txt", "a+")
-
-asklist = client.submission('macmarkov')
-for ask in asklist['posts']:
-    if ask['type'] == 'answer':
-        if ask['state'] == 'submission':
-            genfile.write(ask['question'] + '\n')
-
-genfile.close()
 markov.Parse("askgen", 2, "/home/maclean/pythonresources/genfile.txt")
 
 for ask in asklist['posts']:
