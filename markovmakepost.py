@@ -15,6 +15,8 @@ client = pytumblr.TumblrRestClient( # starts the stuff for talking to Tumblr
     keys[3],
 )
 
+print("updating Steve")
+
 genfile = open("/home/maclean/pythonresources/genfile.txt", "r+")
 
 asklist = client.posts('macmarkov')
