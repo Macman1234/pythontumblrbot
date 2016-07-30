@@ -35,7 +35,7 @@ for ask in asklist['posts']:
     if ask['type'] == 'answer':
         if ask['state'] == 'submission':
             generated = markov.Gen("askgen", random.randrange(4, 6, 1))
-            client.edit_post('macmarkov', id=ask['id'], answer=generated; # edit a post
+            client.edit_post('macmarkov', id=ask['id'], answer=generated, state='published') # edit a post
             os.system("echo " + generated + ' | lpr')
 
 os.remove('askgen.db')
