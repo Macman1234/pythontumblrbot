@@ -3,7 +3,7 @@ import pytumblr # installs the library that makes talking to Tumblr possible thr
 import markov
 import os
 import random
-keyfile = open("~/pythonresources/keys.txt", "r+") # opens the file containing all the security stuff
+keyfile = open("/home/maclean/pythonresources/keys.txt", "r+") # opens the file containing all the security stuff
 str = keyfile.read(204) # using that file object, makes a text (a string) object
 keys = str.split( ) # seperates all 4 keys (first two have to do with the API itself or something,
 # second half have to do with my specific account)
@@ -17,7 +17,7 @@ client = pytumblr.TumblrRestClient( # starts the stuff for talking to Tumblr
 
 print("updating Steve")
 
-genfile = open("~/pythonresources/genfile.txt", "r+")
+genfile = open("/home/maclean/pythonresources/genfile.txt", "r+")
 
 asklist = client.posts('macmarkov')
 
@@ -27,7 +27,7 @@ for ask in asklist['posts']:
 
 genfile.close()
 
-markov.Parse("askgen", 2, "~/pythonresources/genfile.txt")
+markov.Parse("askgen", 2, "/home/maclean/pythonresources/genfile.txt")
 
 asklist = client.submission('macmarkov')
 
